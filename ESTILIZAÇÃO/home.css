@@ -65,11 +65,10 @@ body {
     border-radius: 0.8rem;
     backdrop-filter: blur(10px);
     transition: background-color 0.2s ease-in;
-
   }
 
       /* IMPORTANTE:
-   Davizinho senpai :D, eu removi o & porque isso é SCSS e não CSS puro,
+   Davizinho senpai :D, eu removi o & hover porque isso é SCSS e não CSS puro,
    mas eu substituí por uma propriedade equivalente logo a seguir */
 
   .navigation-menu-list-item:hover {
@@ -290,7 +289,7 @@ body {
 /* CARD BASE */
 
 .card {
-  position:absolute; /* Verificar com Davi se é melhor esse ou o absolute */
+  position: absolute; /* Verificar com Davi se é melhor esse ou o absolute */
   width: 220px;
   padding: 20px;
   border-radius: 24px;
