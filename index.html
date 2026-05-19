@@ -25,15 +25,24 @@
         <nav class="navigation-menu">
             <ul class="navigation-menu-list">
                 <li class="navigation-menu-list-item">
-                    <a class="navigation-menu-link" href="/"><strong>Home</strong></a>
+                    <a class="navigation-menu-link" href="/" data-navigation-menu-link="home">
+                        <span class="navigation-menu-link-number">00</span> 
+                        <span class="navigation-menu-link-text">HOME</span>
+                    </a>
                 </li>
 
                 <li class="navigation-menu-list-item">
-                    <a class="navigation-menu-link" href="/demonstracao"><strong>Demonstração</strong></a>
+                    <a class="navigation-menu-link" href="/demonstracao" data-navigation-menu-link="demonstration">
+                        <span class="navigation-menu-link-number">01</span>
+                        <span class="navigation-menu-link-text">DEMONSTRAÇÃO</span>
+                    </a>
                 </li>
 
                 <li class="navigation-menu-list-item">
-                    <a class="navigation-menu-link" href="/contato"><strong>Contato</strong></a>
+                    <a class="navigation-menu-link" href="/contato" data-navigation-menu-link="contact">
+                        <span class="navigation-menu-link-number">02</span>
+                        <span class="navigation-menu-link-text">CONTATO</span>
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -50,7 +59,15 @@
     <section class="hero">
 
         <!-- FUNDO ESCURO -->
-        <div class="hero-overlay"></div>
+        <div class="hero-overlay">
+            <div class="hero-video">
+                <video autoplay muted loop>
+                    <source src="/assets/videos/Brisa-tranquila.mp4" type="video/mp4">
+                </video>
+            </div>    
+        </div>
+
+        <!--VÍDEO-->
 
         <!-- CONTEÚDO -->
         <div class="hero-content">
@@ -99,29 +116,13 @@
                 </p>
 
                 <img 
-                    src="/assets/images/card1.png" 
+                    src="/assets/images/app.jpeg" 
                     alt="Ícone de jogos interativos"
                 >
 
             </div>
 
             <div class="card card-2">
-
-                <h3>Recursos Visuais</h3>
-
-                <p>
-                    Imagens e cores vibrantes para facilitar a compreensão 
-                    e retenção.
-                </p>
-
-                <img 
-                    src="/assets/images/card2.png" 
-                    alt="Ícone de recursos visuais"
-                >
-
-            </div>
-
-            <div class="card card-3">
 
                 <h3>Personalização</h3>
 
@@ -137,27 +138,11 @@
 
             </div>
 
-            <div class="card card-4">
-
-                <h3>Suporte Contínuo</h3>
-
-                <p>
-                    Equipe dedicada para oferecer suporte e orientação 
-                    aos pais e educadores.
-                </p>
-
-                <img 
-                    src="/assets/images/card4.png" 
-                    alt="Ícone de suporte contínuo"
-                >
-
-            </div>
-
         </div>
 
     </section>
 
-    <!-- ======================================== -->
+<!-- ======================================== -->
 <!-- SOBRE -->
 <!-- ======================================== -->
 

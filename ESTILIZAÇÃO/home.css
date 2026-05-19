@@ -21,7 +21,49 @@ body {
     color: #1d1d1f;
     overflow-x: hidden;
 }
-  
+
+/* ======================================== */
+/* NAVIGATION MENU */
+/* ======================================== */
+
+.navigation-menu {
+  /* 1rem = 14px; px: invariável de tamanho; rem: varia com o tamanho  */
+  height: 5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: rgb(255, 255, 255);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4rem;
+}
+
+.navigation-menu-list {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navigation-menu-list-item {
+  height: 5rem;
+}
+
+.navigation-menu-link {
+  color: rgb(36, 66, 37);
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  height: 100%;
+  padding: 0 1.5rem;
+  border-radius: 1rem;
+  font-size: 1rem; /* 16px */
+}
+
+.navigation-menu-link-number {
+  font-weight: 700;
+}
+
 /* ======================================== */
 /* NAVBAR */
 /* ======================================== */
@@ -53,23 +95,23 @@ body {
 /* MENU EXTRA */
 /* ======================================== */
 
+/*
+.navigation-menu-list {
+  display: flex;
+  gap: 0.5rem;
+}
 
-  .navigation-menu-list {
-    display: flex;
-    gap: 0.5rem;
-  }
+.navigation-menu-list-item {
+  background-color: rgba(53, 146, 29, 0.836);
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.2s ease-in;
+}
 
-  .navigation-menu-list-item {
-    background-color: rgba(255,255,255,0.15);
-    padding: 0.5rem 1rem;
-    border-radius: 0.8rem;
-    backdrop-filter: blur(10px);
-    transition: background-color 0.2s ease-in;
-  }
-
-      /* IMPORTANTE:
+      IMPORTANTE:
    Davizinho senpai :D, eu removi o & hover porque isso é SCSS e não CSS puro,
-   mas eu substituí por uma propriedade equivalente logo a seguir */
+   mas eu substituí por uma propriedade equivalente logo a seguir
 
   .navigation-menu-list-item:hover {
     background-color: rgba(255,255,255,0.25);
@@ -81,6 +123,7 @@ body {
     font-size: 1rem;
     text-decoration: none;
   }
+*/
 
 /* ======================================== */
 /* LINKS */
@@ -188,6 +231,7 @@ body {
     line-height: 1.1;
     margin-top: 10px;
     margin-bottom: 25px;
+    color: white;
   }
 
 /* ======================================== */
@@ -232,6 +276,15 @@ body {
   background: #023621;
   transform: translateY(-3px);
   color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
 }
 
 /* BOTÃO SECUNDÁRIO */
@@ -333,24 +386,15 @@ body {
 /* ======================================== */
 
 .card-1 {
-    bottom: 310px;
-    left: 0;
+    bottom: -160px;
+    right: 580px;
 }
 
 .card-2 {
-    bottom: 80px;
-    right: 280px;
+    bottom: -160px;
+    right: 340px;
 }
 
-.card-3 {
-    bottom: 310px;
-    left: 240px;
-}
-
-.card-4 {
-    bottom: 80px;
-    left: 240px;
-}
 
 /* ======================================== */
 /* ANIMAÇÃO */
