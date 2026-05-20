@@ -15,7 +15,7 @@
   
 
 body {
-    background: #f8fff8;
+    background: #40916c;
     font-family: "Bricolage Grotesque", Helvetica, sans-serif;
     color: #1d1d1f;
     overflow-x: hidden;
@@ -427,9 +427,9 @@ body {
 
   background: linear-gradient(
     to bottom,
-    rgba(63,149,105,0),
-    rgba(63,149,105,0.9),
-    #3f9569
+    rgba(67, 129, 97, 0),
+    #0f2b20,
+    #0f2b20
   );
 
   margin-top: -180px;
@@ -452,13 +452,12 @@ body {
   position: relative;
   overflow: hidden;
 background:
-    radial-gradient(circle at top left, rgba(86, 193, 120, 0.18), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(120, 255, 180, 0.12), transparent 30%),
+    radial-gradient(circle at top left, #3f9569, transparent 30%),
+    radial-gradient(circle at bottom right, rgba(0, 255, 115, 0.12), transparent 30%),
     linear-gradient(
       180deg,
-      #3f9569 0%,
-      #2f7c57 25%,
-      #1f5d42 60%,
+      #3f9569 25%,
+      #3f9569 60%,
       #133728 100%
     );
   margin-top: -40px;
@@ -473,12 +472,7 @@ background:
   width: 700px;
   height: 700px;
 
-  background: radial-gradient(
-    circle,
-    rgba(88,255,166,0.14),
-    transparent 70%
-  );
-
+  background: radial-gradient(circle,#3f9569,transparent 70%);
   top: -250px;
   right: -200px;
 
@@ -493,6 +487,24 @@ background:
   position: relative;
   z-index: 2;
 }
+
+/* ======================================== */
+/* CARROSSEL TEA */
+/* ======================================== */
+
+.tea-carousel {
+  width: 100%;
+  padding: 140px 8%;
+  position: relative;
+  display: flex;
+  gap: 70px;
+  overflow-x: hidden;
+background:
+    radial-gradient(circle at top right,#0f2b20,transparent 30%),
+    linear-gradient(180deg,#0f2b20 0%,#3f9569 100%);
+}
+
+.ca
 
 /* TEXTO SOBRE */
 
