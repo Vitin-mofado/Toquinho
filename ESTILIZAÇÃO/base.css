@@ -16,3 +16,8 @@ a {
     text-decoration-line: none;
     color: var(--text);
 }
+
+button {
+    border: none;
+    background-color: transparent;
+}

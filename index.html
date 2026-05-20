@@ -16,7 +16,7 @@
 <body>
 
     <!-- NAVBAR -->
-    <header class="navbar">
+    <header class="header">
 
         <div class="logo">
             🍎 Toquinho
@@ -32,9 +32,9 @@
                 </li>
 
                 <li class="navigation-menu-list-item">
-                    <a class="navigation-menu-link" href="/demonstracao" data-navigation-menu-link="demonstration">
+                    <a class="navigation-menu-link" href="/showcase" data-navigation-menu-link="showcase">
                         <span class="navigation-menu-link-number">01</span>
-                        <span class="navigation-menu-link-text">DEMONSTRAÇÃO</span>
+                        <span class="navigation-menu-link-text">SHOWCASE</span>
                     </a>
                 </li>
 
@@ -47,7 +47,35 @@
             </ul>
         </nav>
 
+        <button class="sheet-trigger" data-slot="sheet-trigger">
+            <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2" 
+                stroke-linecap="round" 
+                stroke-linejoin="round"
+            >
+                <path d="M4 5h16"/>
+                <path d="M4 12h16"/>
+                <path d="M4 19h16"/>
+            </svg>
+        </button>
     </header>
+
+    <div 
+        class="sheet-overlay"
+        data-slot="sheet-overlay"
+        data-state="closed"
+        onclick="setSheetStateToOpen()"
+    >
+        <div class="sheet-content">
+                
+        </div>
+    </div>
 
 <!-- ======================================== -->
 <!-- HERO / HOME -->
@@ -209,5 +237,7 @@
 
     <script src="/js/navigation-menu.js"></script>
 </main>
+
+<script src="/js/navigation-menu.js"></script>
 </body>
 </html>
