@@ -398,74 +398,6 @@ body {
 }
 
 /* ======================================== */
-/* CARDS FLUTUANTES */
-/* ======================================== */
-
-.floating-cards {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  z-index: 2;
-}
-
-/* CARD BASE */
-
-.card {
-  position: absolute; /* Verificar com Davi se é melhor esse ou o absolute */
-  width: 220px;
-  padding: 20px;
-  border-radius: 24px;
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-}
-
-/*TÍTULO DO CARD */
-
-.card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-
-/*TEXTO DO CARD */
-
-.card p {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.5;
-}
-
-/*IMAGEM DO CARD */
-
-.card img {
-  width: 80px;
-  margin-bottom: 15px;
-}
-
-/* ======================================== */
-/* POSIÇÕES */
-/* ======================================== */
-
-.card-1 {
-    bottom: -160px;
-    right: 580px;
-}
-
-.card-2 {
-    bottom: -160px;
-    right: 340px;
-}
-
-
-/* ======================================== */
 /* ANIMAÇÃO */
 /* ======================================== */
 
@@ -587,47 +519,6 @@ background:
   color: rgba(255,255,255,0.85);
   line-height: 1.6;
 }
-
-/* CARDS SOBRE */
-
-.sobre-cards {
-  flex: 1;
-  display: flex;
-  gap: 25px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 20px;
-}
-
-.sobre-card {
-  min-width: 260px;
-  padding: 35px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.18);
-  transition: 0.4s ease;
-  scroll-snap-align: center;
-}
-
-.sobre-card:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.28);
-  background: rgba(255,255,255,0.12);
-}
-
-.sobre-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-
-.sobre-card p {
-  font-size: 0.95rem;
-  color: white;
-  line-height: 1.5;
-}
-
 
 /* ======================================== */
 /* RESPONSIVO */
