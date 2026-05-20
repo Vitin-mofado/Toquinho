@@ -163,6 +163,8 @@ body {
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg,#1b4332,#2d6a4f,#40916c);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
   }
 
 /* ======================================== */
@@ -416,43 +418,105 @@ body {
 }
 
 /* ======================================== */
+/* TRANSIÇÃO ENTRE SEÇÕES */
+/* ======================================== */
+
+
+.section-transition {
+ width: 100%;
+  height: 180px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(63,149,105,0),
+    rgba(63,149,105,0.9),
+    #3f9569
+  );
+
+  margin-top: -180px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ======================================== */
 /* SOBRE */
 /* ======================================== */
 
 .sobre {
   width: 100%;
-  padding: 80px 8%;
+  min-height: 120vh;
+  padding: 120px 8%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  background: linear-gradient(135deg,#2d6a4f,#40916c,#1b4332);
-  margin-top: -2px;
+  justify-content: center;
+  gap: 80px;
+  position: relative;
+  overflow: hidden;
+background:
+    radial-gradient(circle at top left, rgba(86, 193, 120, 0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(120, 255, 180, 0.12), transparent 30%),
+    linear-gradient(
+      180deg,
+      #3f9569 0%,
+      #2f7c57 25%,
+      #1f5d42 60%,
+      #133728 100%
+    );
+  margin-top: -40px;
+  padding-top: 140px;
+}
+
+.sobre::before {
+  content: "";
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  background: radial-gradient(
+    circle,
+    rgba(88,255,166,0.14),
+    transparent 70%
+  );
+
+  top: -250px;
+  right: -200px;
+
+  z-index: 0;
 }
 
 .sobre-container {
   display: flex;
+  gap: 60px;
   align-items: center;
-  gap: 40px;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
 }
 
 /* TEXTO SOBRE */
 
 .sobre-text {
   flex: 1;
-   background: rgba(0,0,0,0.12);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.15);
-  padding: 40px;
-  border-radius: 24px;
+   background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 60px rgba(0,0,0,0.2),
+    inset 0 1px 1px rgba(255,255,255,0.05);
+
+  padding: 70px;
+  border-radius: 36px;
 }
 
 .sobre-text h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.082);
 }
 
 .sobre-text p {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: rgba(255,255,255,0.85);
   line-height: 1.6;
 }
@@ -460,19 +524,30 @@ body {
 /* CARDS SOBRE */
 
 .sobre-cards {
+  flex: 1;
   display: flex;
-  gap: 20px;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
 }
 
 .sobre-card {
-  flex: 1;
-  padding: 20px;
-  border-radius: 24px;
+  min-width: 260px;
+  padding: 35px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+  transition: 0.4s ease;
+  scroll-snap-align: center;
+}
+
+.sobre-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.28);
   background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #1d1d1f;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
 }
 
 .sobre-card h3 {
@@ -482,7 +557,7 @@ body {
 
 .sobre-card p {
   font-size: 0.95rem;
-  color: #1d1d1f;
+  color: white;
   line-height: 1.5;
 }
 
