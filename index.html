@@ -17,7 +17,6 @@
 
     <!-- NAVBAR -->
     <header class="header">
-
         <div class="logo">
             🍎 Toquinho
         </div>
@@ -73,178 +72,121 @@
         onclick="setSheetStateToOpen()"
     >
         <div class="sheet-content">
-                
+            <!-- Conteúdo do menu mobile aqui -->
         </div>
     </div>
 
-<!-- ======================================== -->
-<!-- HERO / HOME -->
-<!-- inspirado no Squarespace -->
-<!-- ======================================== -->
-
-<main>
-
-    <section class="hero">
-
-        <!-- FUNDO ESCURO -->
-        <div class="hero-overlay">
-            <div class="hero-video">
-                <video autoplay muted loop>
-                    <source src="/assets/videos/Brisa-tranquila.mp4" type="video/mp4">
-                </video>
-            </div>    
-        </div>
-
-        <!--VÍDEO-->
-
-        <!-- CONTEÚDO -->
-        <div class="hero-content">
-
-            <span class="hero-tag">
-                Educação Inclusiva
-            </span>
-
-            <h2>
-                Aprender<br>
-                pode ser divertido,<br>
-                basta um Toquinho
-            </h2>
-
-            <p>
-                O Toquinho é uma plataforma educativa criada para auxiliar
-                crianças com TEA e dificuldades no aprendizado através
-                de jogos interativos, cores, imagens e atividades intuitivas.
-            </p>
-
-            <!-- BOTÕES -->
-            <div class="hero-buttons">
-
-                <a href="Pages/jogo.html" class="btn-primary">
-                    ⬇️ Baixar agora
-                </a>
-
-                <a href="/Pages/niveis.html" class="btn-secondary">
-                    🎮 Testar Demonstração
-                </a>
-
+    <!-- ======================================== -->
+    <!-- HERO / HOME -->
+    <!-- ======================================== -->
+    <main>
+        <section class="hero">
+            <!-- FUNDO ESCURO E VÍDEO -->
+            <div class="hero-overlay">
+                <div class="hero-video">
+                    <video autoplay muted loop playsinline>
+                        <source src="/assets/videos/Brisa-tranquila.mp4" type="video/mp4">
+                    </video>
+                </div>    
             </div>
 
-        </div>
-   </section>
-
-<!-- ======================================== -->
-<!-- SOBRE -->
-<!-- ======================================== -->
-
-    <section class="sobre" id="sobre">
-        <div class="sobre-container">
-
-            <!--TEXTO-->
-            <div class="sobre texto">
-
-                <span class="sobre-tag">
-                    <h1><strong>SOBRE O PROJETO</strong></h1>
-                </span>
-
-                <h2>Educação inclusiva através da tecnologia</h2>
+            <!-- CONTEÚDO -->
+            <div class="hero-content">
+                <span class="hero-tag">Educação Inclusiva</span>
+                <h2>
+                    Aprender<br>
+                    pode ser divertido,<br>
+                    basta um Toquinho
+                </h2>
                 <p>
-                    <strong>O Toquinho é uma plataforma educativa criada para auxiliar</strong>
-                    <strong>crianças com TEA e dificuldades no aprendizado através</strong>
-                   <strong>de jogos interativos, cores, imagens e atividades intuitivas.</strong>
+                    O Toquinho é uma plataforma educativa criada para auxiliar
+                    crianças com TEA e dificuldades no aprendizado através
+                    de jogos interativos, cores, imagens e atividades intuitivas.
                 </p>
 
-                <p>
-                    <strong>Nossa proposta é transformar o aprendizado em algo leve,</strong>
-                    <strong>divertido e acolhedor, respeitando o ritmo e as necessidades</strong>
-                    <strong>de cada criança.</strong>
-                </p>
-
-
+                <!-- BOTÕES -->
+                <div class="hero-buttons">
+                    <a href="Pages/jogo.html" class="btn-primary">⬇️ Baixar agora</a>
+                    <a href="/Pages/niveis.html" class="btn-secondary">🎮 Testar Demonstração</a>
+                </div>
             </div>
-    </section>
+        </section>
 
+        <!-- ======================================== -->
+        <!-- SOBRE -->
+        <!-- ======================================== -->
+        <section class="sobre" id="sobre">
+            <div class="sobre-container">
+                <div class="sobre-texto">
+                    <span class="sobre-tag">
+                        <h1><strong>SOBRE O PROJETO</strong></h1>
+                    </span>
 
+                    <h2>Educação inclusiva através da tecnologia</h2>
+                    <p>
+                        O Toquinho é uma plataforma educativa criada para auxiliar
+                        crianças com TEA e dificuldades no aprendizado através
+                        de jogos interativos, cores, imagens e atividades intuitivas.
+                    </p>
+                    <p>
+                        Nossa proposta é transformar o aprendizado em algo leve,
+                        divertido e acolhedor, respeitando o ritmo e as necessidades
+                        de cada criança.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <div class="section-transition"> <!-- Transição entre seções (AINDA FALTA EDITAR)-->
+        <!-- TRANSIÇÃO -->
+        <div class="section-transition">
+            <!-- Transição entre seções (CSS) -->
+        </div>
 
-    </div>
+        <!-- ======================================== -->
+        <!-- SHOWCASE -->
+        <!-- ======================================== -->
+        <section class="showcase-info">
+            <div class="showcase-top">
+                <div class="showcase-text">
+                    <span>Experiência Inclusiva</span>
+                    <h1>Aprendizado adaptado para cada criança</h1>
+                    <p>
+                        Recursos desenvolvidos para estimular foco,
+                        criatividade, comunicação e desenvolvimento
+                        cognitivo através da interação.
+                    </p>
+                </div>
+            </div>
 
-    <section class="tea-carousel">
+            <div class="showcase-carousel">
+                <div class="showcase-card">
+                    <img src="/assets/images/jogos-sensoriais.png" alt="Ilustração de jogos sensoriais interativos">
+                    <div class="showcase-card-body">
+                        <h2>Jogos Sensoriais</h2>
+                        <p>Atividades visuais e sonoras que ajudam no estímulo cognitivo.</p>
+                    </div>
+                </div>
 
-  <div class="carousel-header">
+                <div class="showcase-card">
+                    <img src="/assets/images/aprendizado-ludico.png" alt="Criança aprendendo sorrindo com o app">
+                    <div class="showcase-card-body">
+                        <h2>Aprendizado Lúdico</h2>
+                        <p>Exercícios leves e intuitivos para tornar o estudo mais divertido.</p>
+                    </div>
+                </div>
 
-    <span class="carousel-tag">
-      EXPERIÊNCIA INTERATIVA
-    </span>
+                <div class="showcase-card">
+                    <img src="/assets/images/experiencia-inclusiva.png" alt="Interface limpa e adaptada para acessibilidade">
+                    <div class="showcase-card-body">
+                        <h2>Experiência Inclusiva</h2>
+                        <p>Interface adaptada com foco em conforto, acessibilidade e acolhimento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <h2>
-      Aprendizado adaptado para cada criança
-    </h2>
-
-    <p>
-      Recursos desenvolvidos para estimular foco,
-      criatividade, comunicação e desenvolvimento
-      cognitivo através da interação.
-    </p>
-
-  </div>
-
-  <!--CAROUSEL-->
-
-  <div class="carousel-track">
-
-    <div class="carousel-card">
-      <div class="card-image">
-        <img src="/assets/images/teacard1.png" alt="Imagem de um jogo sensorial com formas e cores vibrantes">
-      </div>
-
-      <div class="card-content">
-        <h3>Jogos Sensoriais</h3>
-
-        <p>
-          Atividades visuais e sonoras que ajudam
-          no estímulo cognitivo.
-        </p>
-      </div>
-    </div>
-
-    <div class="carousel-card">
-      <div class="card-image">
-        <img src="/assets/images/teacard2.png" alt="Imagem de um jogo lúdico com personagens amigáveis">
-      </div>
-
-      <div class="card-content">
-        <h3>Aprendizado Lúdico</h3>
-
-        <p>
-          Exercícios leves e intuitivos para tornar
-          o estudo mais divertido.
-        </p>
-      </div>
-    </div>
-
-    <div class="carousel-card">
-      <div class="card-image">
-        <img src="/assets/images/teacard3.png" alt="Imagem de uma atividade inclusiva com crianças interagindo">
-      </div>
-
-      <div class="card-content">
-        <h3>Experiência Inclusiva</h3>
-
-        <p>
-          Interface adaptada com foco em conforto,
-          acessibilidade e acolhimento.
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
+    <!-- SCRIPTS -->
     <script src="/js/navigation-menu.js"></script>
-</main>
-
-<script src="/js/navigation-menu.js"></script>
 </body>
 </html>
