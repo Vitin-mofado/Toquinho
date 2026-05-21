@@ -9,6 +9,44 @@
 }
 
 /* ======================================== */
+/* LOGO (CORREÇÃO DE TAMANHO E QUALIDADE) */
+/* ======================================== */
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.05); /* Um zoom sutil e elegante ao passar o mouse */
+}
+
+.logo-img {
+    /* 1. ONDE MEXER NO TAMANHO: Altere este valor para controlar a altura */
+    height: 100px;             /* Aumentao tamanhoda logo*/
+    width: auto;              /* Deixe auto para não amassar as letras */
+    object-fit: contain;
+
+    /* 2. ONDE MEXER NO DESTAQUE: Efeito para descolar a logo do fundo escuro */
+    /* Cria uma leve aura branca/suave atrás da logo, melhorando muito a leitura */
+    filter: drop-shadow(0px 2px 4px rgba(255, 255, 255, 0.4));
+
+    /* Mantém as propriedades de renderização que ajudam na nitidez */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: smooth;
+}
+
+/* Ajuste para telas de computadores grandes */
+@media (width >= 1280px) {
+    .logo-img {
+        height: 130px;         /* Se na tela grande você quiser ainda maior, mude aqui */
+        filter: drop-shadow(0px 2px 6px rgba(255, 255, 255, 0.5));
+    }
+}
+
+/* ======================================== */
 /* BODY */
 /* ======================================== */
 
@@ -535,6 +573,128 @@ body {
 .card-azul { background-color: #bbdefb; }
 .card-rosa { background-color: #f8bbd0; }
 .card-ciano { background-color: #b2ebf2; }
+
+/* ======================================== */
+/* FOOTER (RODAPÉ) */
+/* ======================================== */
+
+.footer {
+    width: 100%;
+    background-color: #081610; /* Um tom de verde ainda mais escuro que o Showcase para fechar a página */
+    padding: 60px 8% 20px 8%;
+    color: white;
+    font-family: "Bricolage Grotesque", Helvetica, sans-serif;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Linha divisória sutil */
+}
+
+/* Bloco da Logo */
+.footer-info {
+    flex: 1.5;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    align-self: flex-start;
+    /* Aplica o mesmo filtro sutil que usamos lá no topo para destacar as letras escuras */
+    filter: drop-shadow(0px 2px 4px rgba(255, 255, 255, 0.3));
+}
+
+.footer-description {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+/* Blocos de Links e Contato */
+.footer-nav, .footer-contact {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-nav h3, .footer-contact h3 {
+    font-size: 1.2rem;
+    color: #7bf1a8; /* Destaque verde claro idêntico ao do Showcase */
+    font-weight: 700;
+}
+
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-nav a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-nav a:hover {
+    color: #7bf1a8;
+    padding-left: 5px; /* Efeito interativo lúdico ao passar o mouse */
+}
+
+.footer-contact p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+/* Faixa de Direitos Autorais */
+.footer-bottom {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ======================================== */
+/* RESPONSIVIDADE DO FOOTER */
+/* ======================================== */
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 5% 20px 5%;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-info, .footer-nav, .footer-contact {
+        width: 100%;
+    }
+}
 
 /* ======================================== */
 /* AJUSTES DE RESPONSIVIDADE (MOBILE) */
