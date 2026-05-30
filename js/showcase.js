@@ -2,20 +2,20 @@ const QUESTIONS = [
   {
     text: 'Selecione a banana',
     options: [
-      { icon: '' },
-      { icon: '' },
-      { icon: '' },
-      { icon: '' },
+      { icon: '🍎' },
+      { icon: '🍌' },
+      { icon: '🍇' },
+      { icon: '🍓' },
     ],
     correct: 3
   },
   {
     text: 'Selecione a uva',
     options: [
-      { icon: '' },
-      { icon: '' },
-      { icon: '' },
-      { icon: '' },
+      { icon: '🍎' },
+      { icon: '🍌' },
+      { icon: '🍇' },
+      { icon: '🍓' },
     ],
     correct: 3
   },
@@ -24,11 +24,41 @@ const QUESTIONS = [
 
 let question = 0
 let selected = null
+let hasChecked = false
 
 function start() {
   const meta = QUESTIONS[question]
+
   document.querySelector('.question-text').textContent = meta.text
+
+  let index = 0
+  
+  while (index <= 3) {
+    const option = document.querySelector(`.question-option:nth-child(${index + 1})`  )
+    const content = meta.options[index].icon
+
+    option.innerHTML = content    
+
+    index += 1
+  }
+
+
+
+inedex  
+  
+  hasChecked = false
+  renderOptions(meta.options)
 }
+
+// renderizar ou mapeia dinâmicamente as opções de resposta
+
+function renderOptions(options) {
+  const optionElements = document.querySelectorAll('.question-option')
+
+  optionElements.forEach((optionElement, index) => {
+    optionElement.onclick = () => select(index + 1)
+    optionElement.textContent = options[index].icon
+  })
 
 /**
  * Selects an answer option in the quiz and updates the UI state
@@ -45,6 +75,8 @@ function select(index) {
 }
 
 
+  const option = document.querySelector(`.question-option:nth-child(${index})`)
+
 /**
  * Checks whether the currently selected option is correct and updates
  * the UI state to either success or error.
@@ -57,6 +89,18 @@ function select(index) {
  * select(3)
  * check()
  */
+
+function select(index) {  //Se o suário já clicou em verificar, não pode mais selecionar uma opção
+  if (hasChecked) {
+    return 
+  }
+
+  selected = index
+}
+
+//Captura todas as caixas de opções
+const options = document.querySelectorAll('.question-option')
+
 function check() {
   if (!selected) {
     return
