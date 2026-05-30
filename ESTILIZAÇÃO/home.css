@@ -208,6 +208,7 @@ body {
   border-bottom-right-radius: 40px;
 }
 
+/* Container do vídeo (Ajustado) */
 .hero-video {
   position: absolute;
   width: 100%;
@@ -215,7 +216,22 @@ body {
   top: 0;
   left: 0;
   z-index: 0;
+  overflow: hidden; /* Garante que a marca-d'água cortada fique invisível */
+}
+
+/* TRUQUE DO ZOOM APERFEIÇOADO: Sumindo 100% com a marca-d'água */
+.hero-video video {
+  /* Aumentamos um pouco mais o zoom para garantir o corte perfeito */
+  width: 125% !important;
+  height: 125% !important;
   object-fit: cover;
+  
+  position: absolute;
+  top: -12%;  
+  left: -12%; 
+  
+  /* MUDANÇA CRUCIAL: Força o corte a acontecer na extremidade oposta à marca-d'água */
+  object-position: top left !important;
 }
 
 /* CORREÇÃO DA PARTE PRETA: Removido o bloco duplicado que quebrava o layout */

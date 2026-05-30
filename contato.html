@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Toquinho - Contato</title>
+        <meta name="description" content="Entre em contato com a equipe do Toquinho">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="/ESTILIZAÇÃO/base.css">
+        <link rel="stylesheet" href="/ESTILIZAÇÃO/contato.css">
+        <link rel="stylesheet" href="/ESTILIZAÇÃO/responsivo.css">
+        <link rel="icon" href="/assets/icons/logo-toquinho.png" type="image/png">
+    </head>
+    <body>
+        <!-- NAVBAR -->
+        <header class="header">
+            <a href="/" class="logo-link">
+                <img src="/assets/icons/logo-toquinho.png" alt="Logo Toquinho" class="logo-img">
+            </a>
+
+            <nav class="navigation-menu">
+                <ul class="navigation-menu-list">
+                    <li class="navigation-menu-list-item">
+                        <a class="navigation-menu-link" href="/" data-navigation-menu-link="home">
+                            <span class="navigation-menu-link-number">00</span>
+                            <span class="navigation-menu-link-text">HOME</span>
+                        </a>
+                    </li>
+                    <li class="navigation-menu-list-item">
+                        <a class="navigation-menu-link" href="/showcase" data-navigation-menu-link="showcase">
+                            <span class="navigation-menu-link-number">01</span>
+                            <span class="navigation-menu-link-text">SHOWCASE</span>
+                        </a>
+                    </li>
+                    <li class="navigation-menu-list-item">
+                        <a class="navigation-menu-link" href="/contato" data-navigation-menu-link="contact">
+                            <span class="navigation-menu-link-number">02</span>
+                            <span class="navigation-menu-link-text">CONTATO</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="sheet-trigger" data-slot="sheet-trigger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </header>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="contact">
+            <form class="contact-left">
+                <h1 class="contact-title">Fale conosco</h1>
+
+                <div class="contact-fields">
+                    <div class="contact-field">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="seu@email.com" required>
+                    </div>
+
+                    <div class="contact-field">
+                        <label for="message">Mensagem</label>
+                        <textarea name="message" id="message" rows="5" placeholder="Como podemos te ajudar?" required></textarea>
+                    </div>
+
+                    <!-- Botão adicionado e englobado nas classes do formulário -->
+                    <button type="submit">Enviar mensagem ➔</button>
+                </div>
+            </form>
+
+            <div class="contact-right">
+                <div class="contact-channels">
+                    <div class="contact-channel">
+                        <span>Email</span>
+                        <span>oi@toquinho.com</span>
+                    </div>
+
+                    <div class="contact-channel">
+                        <span>Telefone</span>
+                        <span>+55 81 99999-9999</span>
+                    </div>
+
+                    <div class="contact-channel">
+                        <span>Suporte</span>
+                        <span>suporte@toquinho.com</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-info">
+            <img src="/assets/icons/logo-toquinho.png" alt="Logo Toquinho" class="footer-logo">
+            <p class="footer-description">
+                Transformando o aprendizado em uma jornada leve, divertida e
+                inclusiva para cada criança.
+            </p>
+        </div>
+
+        <div class="footer-nav">
+            <h3>Navegação</h3>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#sobre">Sobre o Projeto</a></li>
+                <li><a href="/#showcase">Recursos</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contato</h3>
+            <p>📧 contato@toquinho.com.br</p>
+            <p>📍 Educação Inclusiva & Tecnologia</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            &copy; 2026 Toquinho. Todos os direitos reservados. Feito com ❤️ para
+            um aprendizado divertido.
+        </p>
+    </div>
+</footer>
+
+        <!-- SCRIPTS -->
+        <script src="/js/navigation-menu.js"></script>
+    </body>
+</html>
