@@ -30,6 +30,23 @@ body {
     display: block;
 }
 
+/* Garante o tamanho idêntico ao do index */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.logo-img {
+    height: 100px !important; /* Força os mesmos 100px do index */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 2px 4px rgba(255, 255, 255, 0.4));
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: smooth;
+}
+
 /* RESOLVIDO: Esconde o botão de menu de três linhas no computador */
 .header .sheet-trigger, .header button, .header i[class*="menu"] { 
     display: none !important; 
@@ -387,5 +404,13 @@ RESPONSIVIDADE (Ajustes para Mobile e Tablets)
         flex-direction: column;
         padding: 60px 6%;
         gap: 50px;
+    }
+}
+
+/* Ajuste idêntico para telas grandes */
+@media (width >= 1280px) {
+    .logo-img {
+        height: 130px !important;
+        filter: drop-shadow(0px 2px 6px rgba(255, 255, 255, 0.5));
     }
 }
