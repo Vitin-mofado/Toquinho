@@ -2,122 +2,147 @@ const QUESTIONS = [
   {
     text: 'Selecione a banana',
     options: [
-      { icon: '🍎' },
-      { icon: '🍌' },
-      { icon: '🍇' },
-      { icon: '🍓' },
+      { icon: '🍎' }, // Índice 0
+      { icon: '🍌' }, // Índice 1 (Correto)
+      { icon: '🍇' }, // Índice 2
+      { icon: '🍓' }, // Índice 3
     ],
-    correct: 3
+    correct: 1 // Ajustado para o índice exato da banana
   },
   {
     text: 'Selecione a uva',
     options: [
       { icon: '🍎' },
       { icon: '🍌' },
-      { icon: '🍇' },
+      { icon: '🍇' }, // Índice 2 (Correto)
       { icon: '🍓' },
     ],
-    correct: 3
+    correct: 2 // Ajustado para o índice exato da uva
   },
-  
 ]
+
+const main = document.querySelector('main')
+const footer = document.querySelector('footer')
+const finished = document.querySelector('finished')
+
 
 let question = 0
 let selected = null
-let hasChecked = false
+let checked = false // Unificado o nome da variável de controle
 
 function start() {
   const meta = QUESTIONS[question]
 
+  // Define o texto principal do enunciado
   document.querySelector('.question-text').textContent = meta.text
 
-  let index = 0
+  checked = false
+  selected = null
   
-  while (index <= 3) {
-    const option = document.querySelector(`.question-option:nth-child(${index + 1})`  )
-    const content = meta.options[index].icon
-
-    option.innerHTML = content    
-
-    index += 1
-  }  hasChecked = false
+  // Renderiza os dados nas caixas preservando a estrutura
   renderOptions(meta.options)
 }
-
-// renderizar ou mapeia dinâmicamente as opções de resposta
 
 function renderOptions(options) {
   const optionElements = document.querySelectorAll('.question-option')
 
   optionElements.forEach((optionElement, index) => {
-    optionElement.onclick = () => select(index + 1)
-    optionElement.textContent = options[index].icon
+    // Redefine dinamicamente os cliques garantindo o índice puro (0, 1, 2, 3)
+    optionElement.onclick = () => select(index)
+    
+    // Injeta o emoji apenas dentro do container interno do ícone
+    const iconContainer = optionElement.querySelector('.question-option-icon')
+    if (iconContainer) {
+      iconContainer.textContent = options[index].icon
+    }
+    
+    // Reseta estados visuais antigos
+    optionElement.removeAttribute('data-state')
   })
-
-/**
- * @returns {void}
- * Selects an answer option in the quiz and updates the UI state
- *
- * @param {number} index - The index of the selected option.
- *
- *
- * @example
- * select(2)
- */
-function select(index) {
-  // TODO: set `data-state="selected"` for the given option
 }
 
-/**
- * Checks whether the currently selected option is correct and updates
- * the UI state to either success or error.
- *
- * If no option is currently selected, the function does nothing.
- * 
- * @returns {void}
- *
- * @example
- * select(3)
- * check()
- */
+/** */
+function select(index) {
 
+  // Impede seleção se a pergunta já foi respondida/verificada
+  if (checked) return
 
+  selected = index
 
-  const footer = document.querySelector('footer')
+  const options = document.querySelectorAll('.question-option')
+
+  // Aplica o atributo selecionado apenas ao botão correspondente
+  options.forEach((elm, idx) => {
+    if (idx === index) {
+      elm.setAttribute('data-state', 'selected')
+    } else {
+      elm.removeAttribute('data-state')
+    }
+  })
+}
+
+function check() {  
+  // Evita checagem se nada foi selecionado ou se já checou
+  if (selected === null || checked) return
+  
+  checked = true
 
   const meta = QUESTIONS[question]
+  const options = document.querySelectorAll('.question-option')
+  const btnCheck = document.querySelector('.btn-check')
+  const btnContinue = document.querySelector('.btn-continue')
 
   if (selected === meta.correct) {
     footer.setAttribute('data-state', 'success')
+    options[selected].setAttribute('data-state', 'correct')
   } else {
     footer.setAttribute('data-state', 'error')
-
+    options[selected].setAttribute('data-state', 'wrong')
+    
+    // Mostra visualmente onde estava a resposta correta
+    options[meta.correct].setAttribute('data-state', 'correct')
   }
 
-  // TODO: compare `selected` with correct option and update UI state
+  // Alterna a exibição dos botões no footer para prosseguir
+  if (btnCheck && btnContinue) {
+    btnCheck.style.display = 'none'
+    btnContinue.style.display = 'block'
+  }
 }
 
 function _continue() {
-  if (question === QUESTIONS.length  -1) {
-    document.querySelector('main'). setAttribute('data-state', 'finished')
-    document.querySelector('footer'). setAttribute('data-state', 'finished')
-    
+  // Fim do Quiz
+  if (question === QUESTIONS.length - 1) {
+    main.setAttribute('data-state', 'finished')
+    footer.setAttribute('data-state', 'finished')
     return
   }
 
-  question++
-  selected = null
+  // Animação de Saída suave (Fade-out)
+  main.style.transition = 'opacity 0.25s ease'
+  main.style.opacity = '0'
 
-  const options = document.querySelectorAll('.question-option[data-state=selected]')
+  setTimeout(() => {
+    question++
+    
+    // Executa as limpezas de estado e troca as perguntas
+    start()
+    
+    // Reseta o comportamento dos botões do rodapé
+    const btnCheck = document.querySelector('.btn-check')
+    const btnContinue = document.querySelector('.btn-continue')
+    if (btnCheck && btnContinue) {
+      btnCheck.style.display = 'block'
+      btnContinue.style.display = 'none'
+    }
 
-  for (const option of options) {
-    option.removeAttribute('data-state')
-  }
+    footer.setAttribute('data-state', 'normal')
 
-  const footer = document.querySelector('footer')
-
-  footer.setAttribute('data-state', 'normal')
-  document.querySelector('.question-text').textContent = QUESTIONS[question].text
+    // Animação de Entrada suave (Fade-in)
+    main.style.opacity = '1'
+  }, 250)
 }
 
+// Inicialização segura
+main.style.opacity = '1'
 start()

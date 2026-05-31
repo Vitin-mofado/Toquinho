@@ -1,0 +1,624 @@
+/* ==========================================================================
+   RESET & CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4fbf7;
+    font-family: 'Bricolage Grotesque', Helvetica, sans-serif;
+    color: #1d1d1f;
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+}
+
+/* ==========================================================================
+NAVBAR (HEADER)
+========================================================================== */
+
+.header {
+    width: 100%;
+    height: 6rem;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.03);
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+/*Menu de Navegação Desktop*/
+
+.navigation-menu {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.navigation-menu-link {
+    color: #2d6a4f;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.navigation-menu-link-number {
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.navigation-menu-link:hover, .navigation-menu-link[data-state="active"] {
+    color: #43a047;
+    border-bottom: #43a047;
+}
+
+/* Botão do Menu Mobile (Hamburguer) */
+.sheet-trigger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #2d6a4f;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.sheet-trigger:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+MENU MOBILE INTERATIVO (SHEET)
+========================================================================== */
+
+.sheet-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    z-index: 150;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+/* Quando o JS mudar o estado para open */
+.sheet-overlay[data-state="open"] {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sheet-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    background-color: #1b4332;
+    padding: 40px 30px;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sheet-content[data-state="open"], .sheet-content {
+    transform: translateX(0);
+}
+
+/* ==========================================================================
+HERO SECTION / TOPO DA PÁGINA
+========================================================================== */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    padding: 160px 8% 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    background: #0b1d15;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+/* Container de vídeo */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    Width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+
+.hero-video video {
+    width: 125% !important;
+    height: 125% !important;
+    object-fit: cover;
+    object-position: top left !important;
+    position: absolute;
+    top: -12%;
+    left: -12%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.hero-tag {
+    width: fit-content;
+    background: rgba(67, 160, 71, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    color: #a7f3d0;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    line-height: 1.15;
+    color: white;
+    font-weight: 800;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+/* Botões de Ação */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.btn-primary {
+    background-color: #43a047;
+    color: white;
+    box-shadow: 0 4px 14px rgba(67, 160, 71, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: #2e7d32;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(67, 160, 71, 0.5);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   SEÇÃO SOBRE (LAYOUT LADO A LADO)
+   ========================================================================== */
+.sobre {
+    width: 100%;
+    padding: 100px 8%;
+    background: linear-gradient(180deg, #f4fbf7 0%, #e8f5e9 100%);
+    position: relative;
+}
+
+.sobre-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+.sobre-texto {
+    flex: 1.2;
+}
+
+.sobre-tag {
+    color: #2e7d32;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.sobre-texto h2 {
+    font-size: 2.5rem;
+    color: #1b4332;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.sobre-texto p {
+    font-size: 1.1rem;
+    color: #495057;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+/* Grid de Mini Cards Laterais */
+.sobre-cards-laterais {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.mini-card {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    padding: 24px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mini-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(45, 106, 79, 0.08);
+}
+
+.mini-card .icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.mini-card h3 {
+    font-size: 1.2rem;
+    color: #1b4332;
+    font-weight: 700;
+}
+
+.mini-card p {
+    font-size: 0.95rem;
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+/* Divisor em Onda e Laço */
+.wave-separator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 60px;
+}
+
+.ribbon-center {
+    font-size: 1.5rem;
+    background-color: white;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid #a7f3d0;
+    z-index: 5;
+}
+
+/* Transição de Seção */
+.section-transition {
+    height: 40px;
+    background-color: #e8f5e9;
+}
+
+/* ==========================================================================
+   SHOWCASE (GRID DE RECURSOS COLORIDOS)
+   ========================================================================== */
+.showcase-info {
+    width: 100%;
+    padding: 100px 8%;
+    background-color: #0b1d15; /* Tom escuro idêntico para destacar os cards pastéis */
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+.showcase-top {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.showcase-text h1 {
+    font-size: 2.8rem;
+    color: white;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.showcase-text p {
+    font-size: 1.2rem;
+    color: #81e6b3; /* Texto auxiliar verde suave */
+}
+
+/* Grid responsiva para os 6 cards */
+.showcase-carousel {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Estrutura base dos cards do showcase */
+.showcase-card {
+    border-radius: 24px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.showcase-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+    font-size: 2.2rem;
+    background-color: rgba(255, 255, 255, 0.45);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+}
+
+.showcase-card h2 {
+    font-size: 1.4rem;
+    color: #111111; /* Contraste ideal com fundo claro */
+    font-weight: 800;
+}
+
+.showcase-card p {
+    font-size: 1rem;
+    color: #2d3748;
+    line-height: 1.6;
+}
+
+/* Cores Estilo Tons Pastéis Suaves (Ideais para neurodivergência/TEA) */
+.card-roxo { background-color: #e5dbff; }
+.card-amarelo { background-color: #fef3c7; }
+.card-verde { background-color: #d1fae5; }
+.card-azul { background-color: #e0f2fe; }
+.card-rosa { background-color: #fce7f3; }
+.card-ciano { background-color: #e0f7fa; }
+
+/* ==========================================================================
+   FOOTER (RODAPÉ)
+   ========================================================================== */
+.footer {
+    width: 100%;
+    background-color: #050d0a; /* Tom ainda mais escuro para o encerramento */
+    padding: 80px 8% 30px;
+    color: white;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-info {
+    flex: 1.5;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.footer-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    align-self: flex-start;
+}
+
+.footer-description {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    max-width: 340px;
+}
+
+.footer-nav, .footer-contact {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.footer-nav h3, .footer-contact h3 {
+    font-size: 1.15rem;
+    color: #81e6b3;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.footer-nav a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.footer-nav a:hover {
+    color: #43a047;
+    padding-left: 4px;
+}
+
+.footer-contact p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVIDADE COMPLETA)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .sobre-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .sobre-texto, .sobre-cards-laterais {
+        width: 100%;
+    }
+    .hero-content h2 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ativando a Navbar Mobile */
+    .navigation-menu {
+        display: none; /* Esconde menu tradicional */
+    }
+    .sheet-trigger {
+        display: block; /* Revela o botão hambúrguer */
+    }
+    
+    .hero {
+        padding-top: 140px;
+        text-align: center;
+        justify-content: center;
+    }
+    .hero-content {
+        align-items: center;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+    .showcase-text h1 {
+        font-size: 2.2rem;
+    }
+    .footer-container {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+}
+
+/* Conteúdo Textual da Hero */
+
+@keyframes opacity {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.finished {
+    display: none;
+}
+
+.finished {
+    background: #0b1d15;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
