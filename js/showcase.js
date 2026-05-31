@@ -40,13 +40,7 @@ function start() {
     option.innerHTML = content    
 
     index += 1
-  }
-
-
-
-inedex  
-  
-  hasChecked = false
+  }  hasChecked = false
   renderOptions(meta.options)
 }
 
@@ -61,11 +55,11 @@ function renderOptions(options) {
   })
 
 /**
+ * @returns {void}
  * Selects an answer option in the quiz and updates the UI state
  *
  * @param {number} index - The index of the selected option.
  *
- * @returns {void}
  *
  * @example
  * select(2)
@@ -73,9 +67,6 @@ function renderOptions(options) {
 function select(index) {
   // TODO: set `data-state="selected"` for the given option
 }
-
-
-  const option = document.querySelector(`.question-option:nth-child(${index})`)
 
 /**
  * Checks whether the currently selected option is correct and updates
@@ -90,21 +81,7 @@ function select(index) {
  * check()
  */
 
-function select(index) {  //Se o suário já clicou em verificar, não pode mais selecionar uma opção
-  if (hasChecked) {
-    return 
-  }
 
-  selected = index
-}
-
-//Captura todas as caixas de opções
-const options = document.querySelectorAll('.question-option')
-
-function check() {
-  if (!selected) {
-    return
-  }
 
   const footer = document.querySelector('footer')
 
