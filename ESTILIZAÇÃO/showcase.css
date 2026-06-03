@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #f4fbf7;
+    background-color: #a4bdaa;
     font-family: 'Bricolage Grotesque', Helvetica, sans-serif;
     color: #1d1d1f;
     overflow-x: hidden;
@@ -548,6 +548,42 @@ HERO SECTION / TOPO DA PÁGINA
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.4);
 }
+
+/* ==========================================================================
+   ANIMAÇÕES E INTERAÇÕES GERAIS
+   ========================================================================== */
+
+   .progress-bar {
+    width: 100%;
+    height: 12px;
+    background-color: #cef3d1;
+    border-radius: 999px;
+    overflow: hidden;
+   }
+
+   .progress-bar-inner {
+    width: 0; /* Controlado dinamicamente pelo JS */
+    height: 100%;
+    background-color: #43a047;
+    border-radius: 999px;
+    transition: width 0.3s ease-in-out; /* Transição suave */
+   }
+
+   /* Centralizador dos feedbacks de texto abaixo */
+   .feedback-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.feedback-text {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.text-success { color: #2e7d32; }
+.text-error { color: #c62828; }
 
 /* ==========================================================================
    MEDIA QUERIES (RESPONSIVIDADE COMPLETA)
