@@ -52,10 +52,11 @@ let question = 0
 let selected = null
 let checked = false 
 
-// Configuração da música de fundo (suave para TEA)
-const bgMusic = new Audio('//depois eu coloco a música') //EDITAR AQUI URGENTE  
+// Configuração da música de fundo (suave para TEA) - Caminho corrigido com ./
+const bgMusic = new Audio('./assets/sounds/Deltarune.mp3'); 
 bgMusic.loop = true;
-bgMusic.volume = 0.15; // Volume bem baixinho para não dar sobrecarga sensorial
+bgMusic.volume = 0.80; // Volume bem baixinho para não dar sobrecarga sensorial
+
 
 function start() {
   const meta = QUESTIONS[question]
@@ -92,9 +93,9 @@ function renderOptions(options) {
   optionElements.forEach((optionElement, index) => {
     // Redefine dinamicamente os cliques garantindo o índice puro (0, 1, 2, 3)
     optionElement.onclick = () => {
-      // Tenta iniciar a música de fundo no primeiro clique por conta do bloqueio dos navegadores
-      if (bgMusic.paused && bgMusic.src !== window.location.href + '//depois eu coloco a música') { //EDITAR AQUI URGENTE  
-        bgMusic.play().catch(() => {});
+      // CORRIGIDO: Removido o ponto e vírgula que travava a música e ajustado o teste de reprodução
+      if (bgMusic.paused) { 
+        bgMusic.play().catch((err) => console.log("Aguardando interação para tocar áudio:", err));
       }
       select(index);
     }
