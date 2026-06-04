@@ -1,8 +1,9 @@
-const HOME_LINK = document.querySelector('[data-navigation-menu-link=home]')
-const SHOWCASE_LINK = document.querySelector('[data-navigation-menu-link=showcase]')
-const CONTACT_LINK = document.querySelector('[data-navigation-menu-link=contact]')
+// Seleção dos links de navegação
+const HOME_LINK = document.querySelector('[data-navigation-menu-link=home]');
+const SHOWCASE_LINK = document.querySelector('[data-navigation-menu-link=showcase]');
+const CONTACT_LINK = document.querySelector('[data-navigation-menu-link=contact]');
 
-const { pathname } = window.location
+const { pathname } = window.location;
 
 /**
  * Marks a link element as active by setting its data-state attribute.
@@ -10,24 +11,23 @@ const { pathname } = window.location
  * @param {HTMLElement} link - The link element to mark as active.
  */
 function markAsActive(link) {
-  link.setAttribute('data-state', 'active')
+  if (link) {
+    link.setAttribute('data-state', 'active');
+  }
 }
 
-switch (pathname) {
-    case '/':
-        markAsActive(HOME_LINK)
-        break
-
-    case '/showcase':
-        markAsActive(SHOWCASE_LINK)
-        break
-
-    case '/contact':
-        markAsActive(CONTACT_LINK)
-        break
+// CORREÇÃO: Verificação ajustada para aceitar os arquivos .html e o nome correto "contato"
+if (pathname === '/' || pathname === '/index.html') {
+    markAsActive(HOME_LINK);
+} else if (pathname.includes('showcase')) {
+    markAsActive(SHOWCASE_LINK);
+} else if (pathname.includes('contato')) {
+    markAsActive(CONTACT_LINK);
 }
 
-const sheetOverlay = document.querySelector('[data-slot=sheet-overlay]')
+// SELEÇÃO DO MENU: Agora pegando tanto o fundo escuro quanto o conteúdo do menu
+const sheetOverlay = document.querySelector('[data-slot=sheet-overlay]');
+const sheetContent = document.querySelector('[data-slot=sheet-content]'); // <-- Adicionado
 
 /**
  * Sets the sheet state.
@@ -35,13 +35,18 @@ const sheetOverlay = document.querySelector('[data-slot=sheet-overlay]')
  * @param {'open' | 'closed'} state - The sheet state.
  */
 function setSheetState(state) {
-    sheetOverlay?.setAttribute('data-state', state)
+    // CORREÇÃO: Atualiza o estado de ambos os elementos para o CSS poder agir
+    sheetOverlay?.setAttribute('data-state', state);
+    sheetContent?.setAttribute('data-state', state); // <-- Adicionado
 }
 
+// Funções chamadas pelo 'onclick' do seu HTML
 function setSheetStateToOpen() {
-    setSheetState('open')
+    console.log("Menu aberto");
+    setSheetState('open');
 }
 
 function setSheetStateToClosed() {
-    setSheetState('closed')
+    console.log("Menu fechado");
+    setSheetState('closed');
 }

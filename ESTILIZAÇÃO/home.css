@@ -127,13 +127,20 @@ body {
 }
 
 .sheet-overlay {
-  position: fixed; /* Mudado de absolute para fixed para controlar o menu mobile */
+  position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
   z-index: 100;
-  display: none; /* Escondido por padrão até o JS ativar */
+  background-color: rgba(0, 0, 0, 0.5); /* Cortina escura atrás do menu */
+  display: none; /* Esconde por completo */
 }
+
+/* Quando abrir, o display vira block */
+.sheet-overlay[data-state="open"] {
+  display: block;
+}
+
 
 .sheet-content {
   position: fixed;
@@ -142,7 +149,18 @@ body {
   top: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(11, 13, 23, 1);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(40px);
+  z-index: 101; /* Garante que fica na frente do overlay */
+  
+  /* Efeito de deslizar para fora da tela (escondido à direita) */
+  transform: translateX(100%);
+  transition: transform 300ms ease-in-out;
+}
+  
+/* Quando abrir, o transform vira translateX(0%) */
+.sheet-content[data-state="open"] {
+  transform: translateX(0%);
 }
 
 @media (width >= 640px) {
@@ -275,7 +293,7 @@ body {
 
 .hero-content p {
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(212, 212, 212, 0.85);
   line-height: 1.6;
   max-width: 600px;
 }
@@ -774,4 +792,49 @@ body {
       font-size: 2.2rem;
     }
   }
+}
+
+.sheet-content {
+  transform: translateX(100%);
+  transition: transform 200ms ease;
+}
+
+.sheet-content[data-state="open"] {
+  transform: translateX(0);
+}
+
+.sheet-overlay[data-state="open"] {
+  display: block;
+}
+
+.sheet-menu-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.sheet-menu-list-item {
+  width: 100%;
+}
+
+.sheet-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.75rem 0;
+}
+
+.sheet-menu-link-number {
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.sheet-menu-link-text {
+  font-weight: 500;
 }

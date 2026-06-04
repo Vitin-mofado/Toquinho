@@ -46,7 +46,7 @@
             </ul>
         </nav>
 
-        <button class="sheet-trigger" data-slot="sheet-trigger">
+        <button class="sheet-trigger" data-slot="sheet-trigger" onclick="setSheetStateToOpen()">
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 width="24" 
@@ -69,11 +69,34 @@
         class="sheet-overlay"
         data-slot="sheet-overlay"
         data-state="closed"
-        onclick="setSheetStateToOpen()"
+        onclick="setSheetStateToClosed()"
     >
-        <div class="sheet-content">
-            <!-- Conteúdo do menu mobile aqui -->
-        </div>
+
+    </div>
+
+    <div class="sheet-content" data-slot="sheet-content" data-state="closed">
+        <ul class="sheet-menu-list">
+                <li class="sheet-menu-list-item">
+                    <a class="sheet-menu-link" href="/" data-sheet-menu-link="home">
+                        <span class="sheet-menu-link-number">00</span>
+                        <span class="sheet-menu-link-text">HOME</span>
+                    </a>
+                </li>
+
+                <li class="sheet-menu-list-item">
+                    <a class="sheet-menu-link" href="/showcase.html" data-sheet-menu-link="showcase">
+                        <span class="sheet-menu-link-number">01</span>
+                        <span class="sheet-menu-link-text">SHOWCASE</span>
+                    </a>
+                </li>
+
+                <li class="sheet-menu-list-item">
+                    <a class="sheet-menu-link" href="/contato.html" data-sheet-menu-link="contact">
+                        <span class="sheet-menu-link-number">02</span>
+                        <span class="sheet-menu-link-text">CONTATO</span>
+                    </a>
+                </li>
+            </ul>
     </div>
 
     <!-- ======================================== -->
@@ -99,9 +122,9 @@
                     basta um Toquinho
                 </h2>
                 <p>
-                    O Toquinho é uma plataforma educativa criada para auxiliar
+                    <strong>O Toquinho é uma plataforma educativa criada para auxiliar
                     crianças com TEA e dificuldades no aprendizado através
-                    de jogos interativos, cores, imagens e atividades intuitivas.
+                    de jogos interativos, cores, imagens e atividades intuitivas.</strong>
                 </p>
 
                 <!-- BOTÕES -->
